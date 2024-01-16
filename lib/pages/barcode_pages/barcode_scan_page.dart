@@ -76,7 +76,6 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
               Text(
                 barcodeResult,
                 style: const TextStyle(
-                  color: Colors.black,
                   fontSize: 18,
                 ),
               ),

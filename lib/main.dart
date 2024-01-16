@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_app/pages/splash_page.dart';
+import 'package:qr_app/theme/change_theme_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ChangeTheme(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'QR APP',
-      theme: ThemeData.light(),
+      theme: Provider.of<ChangeTheme>(context).themeData,
       debugShowCheckedModeBanner: false,
       home: const SplashPage(),
     );

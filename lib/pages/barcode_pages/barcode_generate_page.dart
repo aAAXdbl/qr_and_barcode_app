@@ -43,6 +43,8 @@ class _BarcodeGeneratePageState extends State<BarcodeGeneratePage> {
                 child: BarcodeWidget(
                   data: urlController.text,
                   barcode: Barcode.code128(),
+                  style: TextStyle(color: Colors.black),
+                  decoration: BoxDecoration(color: Colors.white),
                 ),
               ),
             ),
@@ -144,10 +146,10 @@ class _BarcodeGeneratePageState extends State<BarcodeGeneratePage> {
         String fileName = DateTime.now().microsecondsSinceEpoch.toString();
         final imagePath = await File('$directory/$fileName.png').create();
         await imagePath.writeAsBytes(image);
-        Share.shareXFiles([XFile(imagePath.path)], text: "My QR Code");
+        Share.shareXFiles([XFile(imagePath.path)], text: "My Barode");
       }
     } catch (error) {
-      print('Error sharing QR code: $error');
+      print('Error sharing Barcode: $error');
     }
   }
 }

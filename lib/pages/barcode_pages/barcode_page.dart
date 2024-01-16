@@ -52,7 +52,7 @@ class _BarcodePageState extends State<BarcodePage> {
                   elevation: 10,
                   color: Colors.transparent,
                   child: Image.asset(
-                    "assets/barcode-image.png",
+                    "assets/barcode-image.jpg",
                     width: 300,
                   ),
                 ),

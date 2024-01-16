@@ -96,7 +96,6 @@ class _ScannerPageState extends State<ScannerPage> {
             ),
             Text(qrResult,
                 style: const TextStyle(
-                  color: Colors.black,
                   fontSize: 18,
                 )),
             const SizedBox(height: 30),

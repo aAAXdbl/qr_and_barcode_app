@@ -22,7 +22,7 @@ class _GeneratePageState extends State<GeneratePage> {
     final url = Uri.parse(urlController.text);
     try {
       await launchUrl(url);
-    } on Exception catch (e) {
+    } on Exception {
       // URL çalışmazsa bunu bir URL olmadığını göster
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -126,7 +126,8 @@ class _GeneratePageState extends State<GeneratePage> {
                         label: const Text("Browser",
                             style: TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent))
+                            backgroundColor: Colors.blueAccent,
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold,)))
                     : const SizedBox.shrink(),
                 isGenerate
                     ? ElevatedButton.icon(
@@ -154,7 +155,8 @@ class _GeneratePageState extends State<GeneratePage> {
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent))
+                            backgroundColor: Colors.blueAccent,
+                            textStyle: const TextStyle(fontWeight: FontWeight.bold)))
                     : const SizedBox.shrink(),
               ],
             ),
@@ -174,10 +176,10 @@ class _GeneratePageState extends State<GeneratePage> {
         String fileName = DateTime.now().microsecondsSinceEpoch.toString();
         final imagePath = await File('$directory/$fileName.png').create();
         await imagePath.writeAsBytes(image);
-        Share.shareXFiles([XFile(imagePath.path)], text: "My BarCode");
+        Share.shareXFiles([XFile(imagePath.path)], text: "My QR Code");
       }
     } catch (error) {
-      print('Error sharing Barcode: $error');
+      print('Error sharing QR Code: $error');
     }
   }
 }
