@@ -24,8 +24,13 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
       );
       if (!mounted) return;
       setState(() {
-        barcodeResult = barcode.toString();
-        isScan = true;
+        if(barcode.toString() == "-1") {
+          barcodeResult = "Scanned Data will appear here";
+        }else {
+          barcodeResult = barcode.toString();
+          isScan = true;
+        }
+
       });
     } on PlatformException {
       barcodeResult = "Fail to read Barcode";
@@ -40,7 +45,7 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
           content: Text(
             textAlign: TextAlign.center,
             'Copied to your clipboard !',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
           ),
         ),
       );
@@ -101,7 +106,7 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
                             onPressed: isScan ? copyClipboard : null,
                             icon: const Icon(Icons.copy, color: Colors.white70),
                             label: const Text("Copy",
-                                style: TextStyle(color: Colors.white)),
+                                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blueAccent))
                         : const SizedBox.shrink(),

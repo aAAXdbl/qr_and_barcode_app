@@ -67,7 +67,7 @@ class _BarcodeGeneratePageState extends State<BarcodeGeneratePage> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,
@@ -84,7 +84,7 @@ class _BarcodeGeneratePageState extends State<BarcodeGeneratePage> {
                           textAlign: TextAlign.center,
                           'Enter your data :)',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
                         ),
                       ),
                     );

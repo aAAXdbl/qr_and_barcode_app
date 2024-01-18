@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_app/pages/barcode_pages/barcode_generate_page.dart';
 import 'package:qr_app/pages/barcode_pages/barcode_scan_page.dart';
+import '../../widgets/custom_drawer.dart';
 
 class BarcodePage extends StatefulWidget {
   const BarcodePage({super.key});
@@ -14,9 +15,7 @@ class _BarcodePageState extends State<BarcodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: const Drawer(
-        width: 250,
-      ),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 75,
@@ -64,7 +63,9 @@ class _BarcodePageState extends State<BarcodePage> {
                     backgroundColor: Colors.blueAccent,
                     foregroundColor: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18,letterSpacing: 2),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        letterSpacing: 2),
                   ),
                   onPressed: () {
                     setState(() {
@@ -83,7 +84,9 @@ class _BarcodePageState extends State<BarcodePage> {
                     backgroundColor: Colors.blueAccent,
                     foregroundColor: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18,letterSpacing: 2),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        letterSpacing: 2),
                   ),
                   onPressed: () {
                     setState(() {

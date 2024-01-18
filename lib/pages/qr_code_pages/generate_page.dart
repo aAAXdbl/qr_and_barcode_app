@@ -30,7 +30,7 @@ class _GeneratePageState extends State<GeneratePage> {
           content: Text(
             'Could not launch URL',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white),
           ),
         ),
       );
@@ -41,6 +41,7 @@ class _GeneratePageState extends State<GeneratePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         toolbarHeight: 100,
         title: const Text(
           "Generate QR Code",
@@ -71,7 +72,19 @@ class _GeneratePageState extends State<GeneratePage> {
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: TextField(
               onEditingComplete: () {
-                if (urlController.text.isNotEmpty) {
+                if (urlController.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      backgroundColor: Colors.blueAccent,
+                      content: Text(
+                        textAlign: TextAlign.center,
+                        'Enter your data :)',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
+                      ),
+                    ),
+                  );
+                }else {
                   isGenerate = true;
                 }
                 // Close Keyboard.
@@ -85,7 +98,7 @@ class _GeneratePageState extends State<GeneratePage> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 15),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,
@@ -102,7 +115,7 @@ class _GeneratePageState extends State<GeneratePage> {
                           textAlign: TextAlign.center,
                           'Enter your data :)',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
                         ),
                       ),
                     );
@@ -126,8 +139,8 @@ class _GeneratePageState extends State<GeneratePage> {
                         label: const Text("Browser",
                             style: TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
-                        textStyle: const TextStyle(fontWeight: FontWeight.bold,)))
+                          backgroundColor: Colors.blueAccent,
+                        ))
                     : const SizedBox.shrink(),
                 isGenerate
                     ? ElevatedButton.icon(
@@ -155,8 +168,8 @@ class _GeneratePageState extends State<GeneratePage> {
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
-                            textStyle: const TextStyle(fontWeight: FontWeight.bold)))
+                          backgroundColor: Colors.blueAccent,
+                        ))
                     : const SizedBox.shrink(),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_app/pages/qr_code_pages/scan_page.dart';
+import '../../widgets/custom_drawer.dart';
 import 'generate_page.dart';
 
 class QrCodePage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _QrCodePageState extends State<QrCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        drawer: const Drawer(),
+        drawer: const CustomDrawer(),
         appBar: AppBar(
           elevation: 0,
           toolbarHeight: 75,

@@ -23,8 +23,12 @@ class _ScannerPageState extends State<ScannerPage> {
           "#ff6666", "Cancel", true, ScanMode.QR);
       if (!mounted) return;
       setState(() {
-        qrResult = qrCode.toString();
-        isScan = true;
+        if(qrCode.toString() == "-1") {
+          qrResult = "Scanned Data will appear here";
+        }else {
+          qrResult = qrCode.toString();
+          isScan = true;
+        }
       });
     } on PlatformException {
       qrResult = "Fail to read QR Code";
@@ -39,7 +43,7 @@ class _ScannerPageState extends State<ScannerPage> {
           content: Text(
             textAlign: TextAlign.center,
             'Copied to your clipboard !',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
           ),
         ),
       );
@@ -62,7 +66,7 @@ class _ScannerPageState extends State<ScannerPage> {
           content: Text(
             'Could not launch URL',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color:Colors.white),
           ),
         ),
       );

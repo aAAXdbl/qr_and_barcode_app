@@ -54,7 +54,6 @@ class _SplashPageState extends State<SplashPage> {
                 width: 200,
                 height: 150,
                 fit: BoxFit.contain,
-                frameRate: const FrameRate(240.00),
               ),
               const SizedBox(height: 25),
               const Text(
